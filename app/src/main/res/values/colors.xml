@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary colors -->
+    <color name="primary">#0277BD</color> <!-- Blue, for primary UI elements like buttons -->
+    <color name="primary_variant">#005C9B</color> <!-- Darker shade of blue for accent elements -->
+    <color name="on_primary">#FFFFFF</color> <!-- Text/icons on primary color -->
+
+    <!-- Secondary colors -->
+    <color name="secondary">#26A69A</color> <!-- Teal for secondary UI elements -->
+    <color name="secondary_variant">#1B806D</color> <!-- Darker teal for contrast -->
+    <color name="on_secondary">#FFFFFF</color> <!-- Text/icons on secondary color -->
+
+    <!-- Background and surface colors -->
+    <color name="background">#F4F5F8</color> <!-- Light grey background for the entire app -->
+    <color name="surface">#FFFFFF</color> <!-- White surface for cards, dialogs, etc. -->
+    <color name="on_surface">#212121</color> <!-- Text/icons on surface elements -->
+
+    <!-- Error colors -->
+    <color name="error">#D32F2F</color> <!-- Red for error states -->
+    <color name="on_error">#FFFFFF</color> <!-- Text/icons on error background -->
+
+    <!-- Neutral colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Additional colors -->
+    <color name="grey_500">#9E9E9E</color> <!-- Neutral grey for text or secondary elements -->
+    <color name="grey_200">#EEEEEE</color> <!-- Light grey for subtle backgrounds -->
+
+    <!-- Custom colors -->
+    <color name="transparent">#00000000</color> <!-- Fully transparent color -->
+</resources>

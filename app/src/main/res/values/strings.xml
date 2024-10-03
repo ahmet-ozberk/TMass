@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TMass</string>
+    <string name="onboard_skip">skip</string>
+    <string name="onboard_started">Get Started</string>
+    <string name="rtrn">return</string>
+    <string name="management_app">Management App</string>
+    <string name="login_to">Login to your account</string>
+    <string name="enter_username">Enter your username</string>
+    <string name="enter_email">Enter your email</string>
+    <string name="enter_password">Enter your password</string>
+    <string name="confirm_password">Confirm your password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="or_login_with">or login with</string>
+    <string name="already_account">Do you already have an account?</string>
+    <string name="summary">Summary</string>
+    <string name="assigned_task">Assigned tasks</string>
+    <string name="completed_task">Completed tasks</string>
+    <string name="today_pending_task">Today’s Tasks</string>
+    <string name="pending_task">pending tasks</string>
+</resources>

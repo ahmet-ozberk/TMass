@@ -10,11 +10,11 @@ material = "1.12.0"
 lifecycle-runtime-ktx = "2.8.6"
 ksp = "2.0.20-1.0.25"
 activity-compose = "1.9.2"
-compose-bom = "2024.09.02"
+compose-bom = "2024.09.03"
 room = "2.6.1"
 hilt = "2.52"
 hiltNavigationCompose = "1.2.0"
-navigation = "2.8.1"
+navigation = "2.8.2"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }

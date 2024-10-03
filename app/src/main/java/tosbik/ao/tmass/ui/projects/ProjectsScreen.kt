@@ -154,7 +154,6 @@ fun ProjectsScreen(navController: NavController = rememberNavController()) {
                                     fontSize = 24.sp,
                                     //fontWeight = FontWeight.Black,
                                     modifier = Modifier.weight(1f),
-                                    fontFamily = FontFamily(Font(R.font.mm)),
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Box(

@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -61,7 +62,7 @@ fun ProfileScreen() {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(PrimaryColor)
+                    .background(PrimaryColor.copy(alpha = 0.8f))
                     .padding(
                         top = statusBarInsets.calculateTopPadding() + 16.dp,
                         bottom = 16.dp,
@@ -84,23 +85,20 @@ fun ProfileScreen() {
                     Spacer(modifier = Modifier.size(12.dp))
                     Text(
                         "Jolie Doe",
-                        fontSize = 24.sp,
+                        style = MaterialTheme.typography.headlineMedium,
                         color = SoftWhite,
-                        fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.size(4.dp))
                     Text(
                         "@joliedoe0808",
-                        fontSize = 14.sp,
                         color = SoftWhite,
-                        fontWeight = FontWeight.Light
+                        style = MaterialTheme.typography.labelLarge,
                     )
                     Spacer(modifier = Modifier.size(4.dp))
                     Text(
                         "Mobile Developer",
-                        fontSize = 16.sp,
                         color = SoftWhite,
-                        fontWeight = FontWeight.Light
+                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Light),
                     )
 
 
@@ -115,7 +113,7 @@ fun ProfileScreen() {
                 colors = CardDefaults.elevatedCardColors(containerColor = CardWhiteColor),
             ) {
                 Column(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().padding(4.dp).clip(MaterialTheme.shapes.medium),
                     verticalArrangement = Arrangement.spacedBy(2.dp)
                 ) {
                     ProfileCardButton(text = "Personal Information", R.drawable.user_pen_solid) {
@@ -136,22 +134,21 @@ fun ProfileScreen() {
                         horizontalArrangement = Arrangement.Center,
                         modifier = Modifier
                             .clickable { }
-                            .background(PrimaryColor.copy(alpha = 0.1f))
+                            .background(PrimaryColor.copy(alpha = 0.08f))
                             .fillMaxWidth()
                             .padding(horizontal = 24.dp, vertical = 16.dp)
                     ) {
                         Text(
                             text = "Log Out",
                             color = PrimaryColor,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
                         )
                         Spacer(modifier = Modifier.width(12.dp))
                         Icon(
                             painter = painterResource(R.drawable.right_from_bracket_solid),
                             contentDescription = null,
                             tint = PrimaryColor,
-                            modifier = Modifier.size(18.dp)
+                            modifier = Modifier.size(14.dp)
                         )
                     }
                 }
@@ -174,26 +171,28 @@ private fun ProfileCardButton(
             .clickable { onClick() }
             .background(backgroundColor)
             .fillMaxWidth()
-            .padding(horizontal = 24.dp, vertical = 16.dp)
+            //.padding(horizontal = 16.dp, vertical = 16.dp)
     ) {
         Image(
             painter = painterResource(id = icon),
             contentDescription = null,
-            modifier = Modifier.size(20.dp)
+            colorFilter = ColorFilter.tint(color = SoftWhite),
+            modifier = Modifier.background(PrimaryColor.copy(0.8f)).size(52.dp).padding(horizontal = 12.dp, vertical = 18.dp)
         )
         Spacer(modifier = Modifier.size(8.dp))
         Text(
             text = text,
             color = textColor,
-            fontSize = 16.sp
+            style = MaterialTheme.typography.bodyMedium,
         )
         Spacer(modifier = Modifier.weight(1f))
         Icon(
-            painter = painterResource(R.drawable.angle_right_solid),
+            painter = painterResource(R.drawable.chevron_right),
             contentDescription = null,
             tint = textColor.copy(alpha = 0.6f),
             modifier = Modifier.size(20.dp)
         )
+        Spacer(modifier = Modifier.size(16.dp))
     }
 }
 

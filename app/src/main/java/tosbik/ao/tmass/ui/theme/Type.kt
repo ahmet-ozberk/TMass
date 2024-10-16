@@ -44,19 +44,21 @@ val interTypography = Typography(
 
 
 val montserratTypography = Typography(
-    bodyLarge = TextStyle(fontFamily = montserratFontFamily),
-    displayLarge= TextStyle(fontFamily = montserratFontFamily),
-    displayMedium= TextStyle(fontFamily = montserratFontFamily),
-    displaySmall= TextStyle(fontFamily = montserratFontFamily),
-    headlineLarge= TextStyle(fontFamily = montserratFontFamily),
-    headlineMedium= TextStyle(fontFamily = montserratFontFamily),
-    headlineSmall= TextStyle(fontFamily = montserratFontFamily),
-    titleLarge= TextStyle(fontFamily = montserratFontFamily),
-    titleMedium= TextStyle(fontFamily = montserratFontFamily),
-    titleSmall= TextStyle(fontFamily = montserratFontFamily),
-    bodyMedium= TextStyle(fontFamily = montserratFontFamily),
-    bodySmall= TextStyle(fontFamily = montserratFontFamily),
-    labelLarge= TextStyle(fontFamily = montserratFontFamily),
-    labelMedium= TextStyle(fontFamily = montserratFontFamily),
-    labelSmall= TextStyle(fontFamily = montserratFontFamily),
+    bodyLarge = Typography().bodyLarge.copy(fontFamily = montserratFontFamily),
+    displayLarge= Typography().displayLarge.copy(fontFamily = montserratFontFamily),
+    displayMedium= Typography().displayMedium.copy(fontFamily = montserratFontFamily),
+    displaySmall= Typography().displaySmall.copy(fontFamily = montserratFontFamily),
+    headlineLarge= Typography().headlineLarge.copy(fontFamily = montserratFontFamily),
+    headlineMedium= Typography().headlineMedium.copy(fontFamily = montserratFontFamily),
+    headlineSmall= Typography().headlineSmall.copy(fontFamily = montserratFontFamily),
+    titleLarge= Typography().titleLarge.copy(fontFamily = montserratFontFamily),
+    titleMedium= Typography().titleMedium.copy(fontFamily = montserratFontFamily),
+    titleSmall= Typography().titleSmall.copy(fontFamily = montserratFontFamily),
+    bodyMedium= Typography().bodyMedium.copy(fontFamily = montserratFontFamily),
+    bodySmall= Typography().bodySmall.copy(fontFamily = montserratFontFamily),
+    labelLarge= Typography().labelLarge.copy(fontFamily = montserratFontFamily),
+    labelMedium= Typography().labelMedium.copy(fontFamily = montserratFontFamily),
+    labelSmall= Typography().labelSmall.copy(fontFamily = montserratFontFamily),
+).copy(
+
 )

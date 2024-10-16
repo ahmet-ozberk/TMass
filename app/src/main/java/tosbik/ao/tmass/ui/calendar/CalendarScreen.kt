@@ -57,10 +57,12 @@ import tosbik.ao.tmass.common.extensions.advancedShadow
 import tosbik.ao.tmass.common.utils.CalendarUtils
 import tosbik.ao.tmass.domain.model.HomeTaskModel
 import tosbik.ao.tmass.ui.components.AppButton
+import tosbik.ao.tmass.ui.components.TaskCardView
 import tosbik.ao.tmass.ui.theme.BackgroundColor
 import tosbik.ao.tmass.ui.theme.DividerColor
 import tosbik.ao.tmass.ui.theme.PrimaryColor
 import tosbik.ao.tmass.ui.theme.SecondaryColor
+import tosbik.ao.tmass.ui.theme.SoftWhite
 import tosbik.ao.tmass.ui.theme.TextColorPrimary
 import tosbik.ao.tmass.ui.theme.TextColorSecondary
 import tosbik.ao.tmass.ui.theme.WhiteColor
@@ -102,9 +104,8 @@ fun CalendarScreen() {
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    "${CalendarUtils.getCurrentMonthName()}, ${CalendarUtils.getCurrentYear()}",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.SemiBold,
+                    CalendarUtils.formatCurrentDate(),
+                    style = MaterialTheme.typography.titleLarge,
                     color = TextColorPrimary
                 )
                 Spacer(modifier = Modifier.weight(1f))
@@ -146,16 +147,15 @@ fun CalendarScreen() {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(
                                 text = CalendarUtils.getDayName(date),
-                                fontSize = 11.sp,
+                                style = MaterialTheme.typography.bodySmall,
                                 color = color,
                                 textAlign = TextAlign.Center
                             )
                             Spacer(modifier = Modifier.height(2.dp))
                             Text(
                                 text = date.dayOfMonth.toString(),
-                                fontSize = 16.sp,
+                                style = MaterialTheme.typography.titleMedium,
                                 color = color,
-                                fontWeight = FontWeight.SemiBold,
                                 textAlign = TextAlign.Center
                             )
                         }
@@ -172,91 +172,7 @@ fun CalendarScreen() {
             Spacer(modifier = Modifier.height(8.dp))
             LazyColumn(contentPadding = PaddingValues(vertical = 12.dp)) {
                 items(10) { i ->
-                    val task = HomeTaskModel()
-                    val isCompleted = i % 2 == 0
-                    Box(
-                        modifier = Modifier
-                            .advancedShadow(
-                                color = DividerColor,
-                                alpha = 0.1f,
-                                offsetY = 8.dp,
-                                shadowBlurRadius = 12.dp
-                            )
-                            .fillMaxWidth()
-                            .padding(
-                                start = 16.dp,
-                                end = 16.dp,
-                                bottom = 16.dp
-                            )
-                            .clip(MaterialTheme.shapes.medium)
-                            .background(WhiteColor)
-                            .padding(horizontal = 24.dp, vertical = 24.dp)
-                    ) {
-                        Column {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(
-                                        task.title,
-                                        fontSize = 18.sp,
-                                        fontWeight = FontWeight.Medium,
-                                        color = TextColorPrimary,
-                                        maxLines = 2,
-                                        textDecoration = if (isCompleted) TextDecoration.LineThrough else null
-                                    )
-                                    Spacer(modifier = Modifier.size(4.dp))
-                                    Text(
-                                        task.project,
-                                        fontSize = 12.sp,
-                                        fontWeight = FontWeight.Normal,
-                                        color = TextColorSecondary
-                                    )
-                                }
-                                Spacer(modifier = Modifier.width(8.dp))
-                                IconButton(
-                                    onClick = {},
-                                    colors = IconButtonDefaults.filledIconButtonColors(
-                                        containerColor = if (isCompleted) PrimaryColor else PrimaryColor.copy(
-                                            alpha = 0.2f
-                                        )
-                                    ),
-                                    modifier = Modifier.size(36.dp)
-                                ) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.check_solid),
-                                        contentDescription = "Arrow Right",
-                                        modifier = Modifier.size(16.dp),
-                                        tint = if (isCompleted) WhiteColor else BackgroundColor
-                                    )
-                                }
-                            }
-                            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp), color = DividerColor)
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Icon(
-                                    painter = painterResource(R.drawable.calendar_regular),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(16.dp)
-                                )
-                                Spacer(modifier = Modifier.size(8.dp))
-                                Text(
-                                    task.dueDate,
-                                    fontSize = 12.sp,
-                                    color = TextColorSecondary,
-                                    fontWeight = FontWeight.Normal
-                                )
-                                Spacer(modifier = Modifier.weight(1f))
-                                Text(
-                                    task.priority,
-                                    modifier = Modifier
-                                        .clip(MaterialTheme.shapes.medium)
-                                        .background(SecondaryColor.copy(alpha = 0.1f))
-                                        .padding(horizontal = 12.dp, vertical = 4.dp),
-                                    fontSize = 12.sp,
-                                    color = SecondaryColor,
-                                    textAlign = TextAlign.Center
-                                )
-                            }
-                        }
-                    }
+                    TaskCardView(i)
                 }
             }
         }
@@ -291,10 +207,9 @@ private fun TaskTabButton(
     ) {
         Text(
             text = text,
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.titleMedium,
             color = if (isSelected) PrimaryColor else TextColorPrimary,
             textAlign = TextAlign.Center,
-            fontWeight = FontWeight.SemiBold,
         )
     }
 }

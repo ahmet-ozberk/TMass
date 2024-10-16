@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
             TMassTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = BackgroundColor) {
                     val navController = rememberNavController()
-                    val startDestination = NavRoot.Onboard
+                    val startDestination = NavRoot.Base
                     NavigationGraph(
                         navController = navController,
                         startDestination = startDestination,
